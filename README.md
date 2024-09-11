@@ -12,8 +12,7 @@ Certifique-se de que você tem as seguintes bibliotecas instaladas:
 Para instalar as dependências necessárias, use os seguintes comandos:
 
 ```bash
-pip install yt-dlp
-pip install pytubefix
+pip install -r requirements.txt
 ````
 
 ## Funcionalidades
