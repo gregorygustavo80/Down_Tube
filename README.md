@@ -50,5 +50,5 @@ Ao iniciar o script e escolher a opção V (vídeo), o usuário deverá colar o 
 ### Baixando apenas o áudio
 Se a opção A for escolhida, o usuário deverá colar o link do vídeo do YouTube. O script automaticamente baixa o áudio com a melhor qualidade disponível.
 
-##Contribuições
+## Contribuições
 Sinta-se à vontade para abrir uma issue ou enviar um pull request se encontrar algum problema ou quiser sugerir melhorias.
