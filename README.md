@@ -9,7 +9,7 @@ Certifique-se de que você tem as seguintes bibliotecas instaladas:
 - `yt_dlp`: para download de vídeos em diferentes resoluções.
 - `pytubefix`: para download de áudios.
 
-Para instalar as dependências necessárias, use os seguintes comandos:
+Para instalar as dependências necessárias, use o seguinte comando:
 
 ```bash
 pip install -r requirements.txt
