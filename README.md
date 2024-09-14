@@ -8,12 +8,30 @@ Certifique-se de que você tem as seguintes bibliotecas instaladas:
 
 - `yt_dlp`: para download de vídeos em diferentes resoluções.
 - `pytubefix`: para download de áudios.
+- FFmpeg para mesclar as partes
 
 Para instalar as dependências necessárias, use o seguinte comando:
 
 ```bash
 pip install -r requirements.txt
 ````
+
+## Inserir FFmpeg ao Path do sistema
+
+### Windows:
+1. Baixe o **ffmpeg** do [site oficial](https://ffmpeg.org/download.html).
+2. Extraia o arquivo em uma pasta (por exemplo, `C:\ffmpeg`).
+3. Adicione essa pasta ao **PATH**:
+   - Clique com o botão direito no ícone **Este PC** ou **Meu Computador** e selecione **Propriedades**.
+   - Vá até **Configurações Avançadas do Sistema** e clique em **Variáveis de Ambiente**.
+   - Encontre a variável `Path` na seção **Variáveis do Sistema**, selecione-a e clique em **Editar**.
+   - Adicione o caminho da pasta bin onde você extraiu o `ffmpeg` (por exemplo, `C:\ffmpeg\bin`).
+   - Clique em **OK** e feche todas as janelas.
+4. Para testar, abra o **Prompt de Comando** e execute `ffmpeg -version`. Se aparecer a versão do ffmpeg, está funcionando.
+
+
+
+
 
 ## Funcionalidades
 + Baixar vídeo do YouTube em diferentes resoluções (1080p, 720p, 480p, 360p).
