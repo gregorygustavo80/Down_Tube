@@ -8,7 +8,7 @@ Certifique-se de que você tem as seguintes bibliotecas instaladas:
 
 - `yt_dlp`: para download de vídeos em diferentes resoluções.
 - `pytubefix`: para download de áudios.
-- FFmpeg para mesclar as partes
+- FFmpeg para mesclar as partes.
 
 Para instalar as dependências necessárias, use o seguinte comando:
 
