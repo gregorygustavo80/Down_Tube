@@ -1,6 +1,6 @@
 # YouTube Video & Audio Downloader
 
-Este projeto permite baixar vídeos e áudios do YouTube utilizando as bibliotecas `yt_dlp` e `pytubefix`. O usuário pode escolher a resolução do vídeo a ser baixado ou optar por baixar apenas o áudio.
+Este projeto permite baixar vídeos em alta definição em até 1080p e áudios do YouTube utilizando as bibliotecas `yt_dlp` e `pytubefix`. O usuário pode escolher a resolução do vídeo a ser baixado ou optar por baixar apenas o áudio.
 
 ## Pré-requisitos
 
