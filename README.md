@@ -15,6 +15,9 @@ Para instalar as dependências necessárias, use o seguinte comando:
 ```bash
 pip install -r requirements.txt
 ````
+````bash
+python -m pip install --upgrade yt-dlp pytubefix
+````
 
 ## Inserir FFmpeg ao Path do sistema
 
