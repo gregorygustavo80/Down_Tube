@@ -10,8 +10,10 @@ Certifique-se de que você tem as seguintes bibliotecas instaladas:
 - `pytubefix`: para download de áudios.
 - FFmpeg para mesclar as partes.
 
-Para instalar as dependências necessárias, use o seguinte comando:
-
+Para baixar e instalar as dependências necessárias, use o seguinte comando:
+```bash
+git clone https://github.com/gregorygustavo80/Down_Tube.git
+````
 ```bash
 pip install -r requirements.txt
 ````
