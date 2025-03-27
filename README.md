@@ -28,7 +28,7 @@ python -m pip install --upgrade yt-dlp pytubefix
 2. Crie um pasta no disco C:\ com o nome ffmpeg.
 3. Extraia o arquivo e copie tudo para a pasta ffmpeg no disco C:\.
 4. Adicione essa pasta ao **PATH**:
-   - Em configurações clique em sistema > sobre > proteção do sistema > avançado > variáveis de ambiente  
+   - Em configurações clique em sistema > sobre > proteção do sistema > avançado > variáveis de ambiente (ou execute sysdm.cpl)  
    - Encontre a variável `Path` na seção **Variáveis do Sistema**, selecione-a e clique em **Editar**.
    - Adicione o caminho da pasta bin onde você extraiu o `ffmpeg` (por exemplo, `C:\ffmpeg\bin`).
    - Clique em **OK** e feche todas as janelas.
