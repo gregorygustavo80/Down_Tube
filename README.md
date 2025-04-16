@@ -30,7 +30,7 @@ python -m pip install --upgrade yt-dlp pytubefix
 4.  Adicione o caminho da pasta bin ao **PATH**:
    - Em configurações clique em sistema > sobre > proteção do sistema (ou execute sysdm.cpl) > avançado > variáveis de ambiente  
    - Encontre a variável `Path` na seção **Variáveis do Sistema**, selecione-a e clique em **Editar**.
-   - Adicione o caminho da pasta bin C:\ffmpeg\bin`
+   - Adicione o caminho da pasta bin C:\ffmpeg\bin
    - Clique em **OK** e feche todas as janelas.
 5. Para testar, abra o **Prompt de Comando** e execute `ffmpeg -version`. Se aparecer a versão do ffmpeg, está funcionando.
 
