@@ -1,13 +1,12 @@
 # YouTube Video & Audio Downloader
 
-Este projeto permite baixar vídeos em alta definição em até 1080p e áudios do YouTube utilizando as bibliotecas `yt_dlp` e `pytubefix`. O usuário pode escolher a resolução do vídeo a ser baixado ou optar por baixar apenas o áudio.
+Este projeto permite baixar vídeos em alta definição em até 1080p e áudios do YouTube utilizando `yt_dlp`  O usuário pode escolher a resolução do vídeo a ser baixado ou optar por baixar apenas o áudio.
 
 ## Pré-requisitos
 
 Certifique-se de que você tem as seguintes bibliotecas instaladas:
 
 - `yt_dlp`: para download de vídeos em diferentes resoluções.
-- `pytubefix`: para download de áudios.
 - FFmpeg para mesclar as partes.
 
 Para baixar e instalar as dependências necessárias, use o seguinte comando:
@@ -17,11 +16,14 @@ git clone https://github.com/gregorygustavo80/Down_Tube.git
 ```bash
 pip install -r requirements.txt
 ````
-````bash
-python -m pip install --upgrade yt-dlp pytubefix
+
+## Instalar FFmpeg no windows
+
+````
+winget install FFmpeg
 ````
 
-## Inserir FFmpeg ao Path do sistema
+## Se não funcionar insira FFmpeg ao Path do sistema
 
 ### Windows:
 1. Baixe o **ffmpeg** do [site oficial](https://ffmpeg.org/download.html).
@@ -33,6 +35,10 @@ python -m pip install --upgrade yt-dlp pytubefix
    - Adicione o caminho da pasta bin C:\ffmpeg\bin
    - Clique em **OK** e feche todas as janelas.
 5. Para testar, abra o **Prompt de Comando** e execute `ffmpeg -version`. Se aparecer a versão do ffmpeg, está funcionando.
+### No linux 
+````
+sudo apt install ffmpeg
+````
 
 
 ## Funcionalidades
@@ -53,6 +59,7 @@ python Down_Tube.py
 Escolha entre baixar vídeo ou áudio:
 + Digite V para vídeo.
 + Digite A para áudio.
++ Digite S para sair.
 
 Se a opção V for escolhida, você deverá selecionar a resolução do vídeo:
 + 1 para 1080p
