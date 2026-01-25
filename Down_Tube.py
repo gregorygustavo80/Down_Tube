@@ -1,17 +1,44 @@
-from pytubefix import YouTube
 import yt_dlp
 
-def baixar_video():
-   
-    video_url = input('Cole aqui o vídeo do YouTube: ')
+def download_com_fallback(url, ydl_opts):
+    tentativas = [
+        ('edge',),
+        ('chrome',),
+        ('firefox',),
+        None  
+    ]
 
-    print("Escolha a resolução do vídeo:")
+    for cookies in tentativas:
+        try:
+            if cookies:
+                print(f"\n🍪 Tentando cookies do {cookies[0]}...")
+                ydl_opts['cookiesfrombrowser'] = cookies
+            else:
+                print("\n🚫 Tentando sem cookies...")
+                ydl_opts.pop('cookiesfrombrowser', None)
+
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+
+            print("✅ Download concluído!\n")
+            return
+
+        except Exception as e:
+            print("⚠️ Falha nesta tentativa.")
+
+    print("❌ Não foi possível concluir o download.\n")
+
+
+def baixar_video():
+    video_url = input('Cole aqui o link do YouTube: ').strip()
+
+    print("\nEscolha a resolução do vídeo:")
     print("1 - 1080p")
     print("2 - 720p")
     print("3 - 480p")
     print("4 - 360p")
 
-    choice = input("Digite o número da resolução desejada: ")
+    choice = input("Digite o número da resolução desejada: ").strip()
 
     resolutions = {
         '1': '1080',
@@ -20,41 +47,57 @@ def baixar_video():
         '4': '360'
     }
 
-    if choice in resolutions:
-        selected_resolution = resolutions[choice]
-        print(f"Baixando o vídeo na resolução {selected_resolution}p...")
-    else:
-        print("Escolha inválida! Baixando na resolução padrão (720p)...")
-        selected_resolution = '720'
+    resolution = resolutions.get(choice, '720')
+    print(f"\n➡ Baixando vídeo em até {resolution}p...\n")
 
     ydl_opts = {
-        'format': f'bestvideo[height<={selected_resolution}]+bestaudio/best[height<={selected_resolution}]',
-        'outtmpl': '%(title)s.%(ext)s',  
+        'format': f'bestvideo[ext=mp4][height<={resolution}]+bestaudio[ext=m4a]/best[ext=mp4][height<={resolution}]',
+        'merge_output_format': 'mp4',
+        'outtmpl': '%(title)s.%(ext)s',
+        'noplaylist': True,
+        'progress': True,
+        'verbose': True,
     }
 
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([video_url])
+    download_com_fallback(video_url, ydl_opts)
 
 
 def baixar_audio():
-    video_url = input('Cole o link do YouTube aqui: ')
-    yt = YouTube(video_url)
+    video_url = input('Cole aqui o link do YouTube: ').strip()
+    print("\n➡ Baixando áudio (mp3)...\n")
 
-    print("Baixando o áudio...")
-    audio_stream = yt.streams.filter(only_audio=True).order_by('abr').desc().first()
-    audio_stream.download()
-    print("Download do áudio concluído!")
- 
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'outtmpl': '%(title)s.%(ext)s',
+        'noplaylist': True,
+        'progress': True,
+        'verbose': True,
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+    }
+
+    download_com_fallback(video_url, ydl_opts)
+
 
 def main():
-    while True:
-        resposta = input('Digite [V] para baixar Vídeo ou [A] para baixar o áudio: ')
-        if resposta.lower() == 'v':
-            baixar_video()
-        elif resposta.lower() == 'a':
-            baixar_audio()
-        else:
-            print('Opção inválida, tente novamente.')
+    print("=== YouTube Downloader (yt-dlp) ===")
 
-if __name__== '__main__':
+    while True:
+        opcao = input("\n[V] Vídeo | [A] Áudio | [S] Sair: ").lower().strip()
+
+        if opcao == 'v':
+            baixar_video()
+        elif opcao == 'a':
+            baixar_audio()
+        elif opcao == 's':
+            print("Encerrando...")
+            break
+        else:
+            print("Opção inválida.")
+
+
+if __name__ == '__main__':
     main()
